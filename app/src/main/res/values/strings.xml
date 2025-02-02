@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab3Preliminaries</string>
+    <string name="question_1">Question 1</string>
+    <string name="question_1_text">How do you feel about joining university clubs</string>
+    <string name="question_2">Question 2</string>
+    <string name="question_2_text">What\'s your preferred way to spend a weekend in Singapore</string>
+</resources>
