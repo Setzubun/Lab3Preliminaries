@@ -15,8 +15,8 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -38,7 +38,9 @@ fun QuestionScreen(
     quizViewModel: QuizViewModel,
     modifier: Modifier = Modifier,
 ){
-    var currentQuestionIndex by remember { mutableIntStateOf(0) }
+    val uiState by quizViewModel.uiState.collectAsState()
+
+    val currentQuestionIndex = uiState.questionIndex
     val currentQuestion = TestData.testData[currentQuestionIndex]
     val totalQuestions = TestData.testData.size
     var selectedOption: Option? by remember { mutableStateOf(null) }
@@ -51,13 +53,12 @@ fun QuestionScreen(
             navController.navigate("completed_screen")
             quizViewModel.calculateScore()
         } else {
-            currentQuestionIndex += 1
+            quizViewModel.incrementQuestionIndex()
             selectedOption = null
         }
     }
 
     fun resetQuiz(){
-        currentQuestionIndex = 0
         selectedOption = null
         quizViewModel.reset()
         navController.navigate("start_screen")
