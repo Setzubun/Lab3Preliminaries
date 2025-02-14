@@ -1,7 +1,6 @@
 package com.example.lab3preliminaries
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,7 +18,7 @@ sealed class Screen(val route: String){
 }
 
 @Composable
-fun NavGraph(startDestination: String = Screen.StartScreen.route, modifier: Modifier = Modifier){
+fun NavGraph(startDestination: String = Screen.StartScreen.route){
     val navController = rememberNavController()
     val quizViewModel: QuizViewModel = viewModel()
 

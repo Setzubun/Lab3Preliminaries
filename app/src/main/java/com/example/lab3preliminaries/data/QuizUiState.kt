@@ -8,3 +8,4 @@ data class QuizUiState(
     val totalScore: Int = 0,
     val questionIndex: Int = 0
 )
+

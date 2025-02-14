@@ -127,7 +127,8 @@ fun ButtonRow(
         Button(onClick = {
             onCancel()
         },
-            modifier = Modifier.weight(1f)) {
+            modifier = Modifier.weight(1f)
+        ) {
             Text(text = "Cancel")
         }
         Spacer(modifier = Modifier.weight(0.1f))
